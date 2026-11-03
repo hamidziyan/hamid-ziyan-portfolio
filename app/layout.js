@@ -1,9 +1,5 @@
 import "./globals.css";
-import { Space_Mono, Space_Grotesk } from "next/font/google";
 import { profile } from "@/data/content";
-
-const mono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-mono" });
-const grotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-body" });
 
 export const metadata = {
   title: `${profile.name} | ${profile.title}`,
@@ -12,7 +8,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${mono.variable} ${grotesk.variable}`}>
+    <html
+      lang="en"
+      style={{
+        "--font-mono": "ui-monospace, SFMono-Regular, Menlo, monospace",
+        "--font-body": "Arial, Helvetica, sans-serif",
+      }}
+    >
       <body>{children}</body>
     </html>
   );
